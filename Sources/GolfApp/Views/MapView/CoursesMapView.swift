@@ -21,19 +21,44 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     @ObservedObject var viewModel: ViewModel
     #if !SKIP
     @State var position: MapCameraPosition = .automatic
+    @State var selectedCourse: String?
+    
+    private var selectedPlace: Course? {
+        if let selectedCourse {
+            return viewModel.courses.first(where: { $0.name == selectedCourse })
+        }
+        return nil
+    }
     #endif
     
     var body: some View {
         #if !SKIP
         
-        Map(position: $position, content: {
+        Map(position: $position, selection: $selectedCourse) {
             
             ForEach(viewModel.courses) { course in
                 Marker(course.name, coordinate: course.coordinate)
+                    .tag(course.name)
             }
             
-        })
+        }
         .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
+        .mapControls {
+            MapUserLocationButton()
+        }
+        .sheet(item: $selectedCourse) { course in
+            if let selectedPlace {
+                CourseInfoView(course: selectedPlace)
+                    .presentationDetents(.init([.medium]))
+            }
+        }
+//        .safeAreaInset(edge: .bottom) {
+//            if let selectedPlace {
+//                NavigationLink(destination: CourseInfoView(placeName: selectedPlace.name)) {
+//                    Text(selectedPlace.name)
+//                }
+//            }
+//        }
         #else
         ComposeView { ctx in
             GoogleMap(cameraPositionState: rememberCameraPositionState {
@@ -42,7 +67,8 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
                 for course in viewModel.courses {
                     Marker(
                         state = MarkerState(position = LatLng(course.coordinate.latitude, course.coordinate.longitude)),
-                        title = course.name
+                        title = course.name,
+                        snippet = course.courseInfo
                     )
                 }
             }

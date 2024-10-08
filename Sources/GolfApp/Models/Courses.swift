@@ -30,5 +30,6 @@ struct Course: Identifiable {
     var coordinate: Coordinates
     #endif
     
+    var courseInfo: String
 }
 
