@@ -15,21 +15,36 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 #endif
 
-struct Coordinates {
+struct Coordinates: Decodable {
     var latitude: Double
     var longitude: Double
 }
 
-struct Course: Identifiable {
+enum CourseType: String, Decodable {
+    case parkland = "Parkland"
+    case heathland = "Heathland"
+    case links = "Links"
+    case moorland = "Moorland"
+    case mixed = "Mixed"
+}
+
+struct Cost: Decodable {
+    var costSummer: Double
+    var costWinter: Double?
+    var residentRate: Double?
+}
+
+struct Course: Identifiable, Decodable {
     let id = UUID()
     var name: String
     
-    #if !SKIP
-    var coordinate: CLLocationCoordinate2D
-    #else
     var coordinate: Coordinates
-    #endif
     
     var courseInfo: String
+    var holes: Int
+    var sizeYrds: Double
+    var rating: Double?
+    var cost: Cost?
+    var type: CourseType
 }
 

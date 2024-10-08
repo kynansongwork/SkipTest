@@ -33,11 +33,11 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     
     var body: some View {
         #if !SKIP
-        
         Map(position: $position, selection: $selectedCourse) {
             
             ForEach(viewModel.courses) { course in
-                Marker(course.name, coordinate: course.coordinate)
+                Marker(course.name, coordinate: CLLocationCoordinate2D(latitude: course.coordinate.latitude,
+                                                                       longitude: course.coordinate.longitude))
                     .tag(course.name)
             }
             
@@ -52,13 +52,6 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
                     .presentationDetents(.init([.medium]))
             }
         }
-//        .safeAreaInset(edge: .bottom) {
-//            if let selectedPlace {
-//                NavigationLink(destination: CourseInfoView(placeName: selectedPlace.name)) {
-//                    Text(selectedPlace.name)
-//                }
-//            }
-//        }
         #else
         ComposeView { ctx in
             GoogleMap(cameraPositionState: rememberCameraPositionState {

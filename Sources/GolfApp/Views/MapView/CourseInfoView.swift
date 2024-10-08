@@ -15,14 +15,43 @@ struct CourseInfoView: View {
     let course: Course
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text(course.name)
-            Text(course.courseInfo)
+        ZStack() {
+            VStack(spacing: 0) {
+                Text(course.name)
+                    .font(.title)
+                    .padding(.vertical, 10)
+                Spacer()
+            }
+            
+            VStack(spacing: 4) {
+                Text(course.courseInfo)
+                
+                HStack(spacing: 8) {
+                    Text("Rating: \(course.rating)")
+                    Text("Holes: \(course.holes)")
+                }
+                
+                HStack(spacing: 8) {
+                    Text("Size: \(course.sizeYrds) yards")
+                    Text("Type: \(course.type)")
+                }
+                
+                Text("Cost summer: \(course.cost?.costSummer)")
+                
+                if let winterCost = course.cost?.costWinter {
+                    Text("Cost winter: \(winterCost)")
+                }
+            }
         }
-        
+
     }
 }
 
 #Preview {
-    CourseInfoView(course: Course(name: "", coordinate: .init(latitude: 11.1, longitude: -3.2), courseInfo: ""))
+    CourseInfoView(course: Course(name: "",
+                                  coordinate: .init(latitude: 11.1, longitude: -3.2),
+                                  courseInfo: "",
+                                  holes: 9,
+                                  sizeYrds: 1000,
+                                  type: .links))
 }

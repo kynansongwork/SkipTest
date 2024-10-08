@@ -32,20 +32,24 @@ class CoursesMapViewModel: CoursesMapViewModelling {
     }
     
     func fetchCourses() {
-        #if !SKIP
-        let testMarker = Course(name: "Gleneagles",
-                                coordinate: CLLocationCoordinate2D(latitude: 56.2831, longitude: -3.7521),
-                                courseInfo: "This is a golf course near Auchterader")
-        let testMarker2 = Course(name: "Braid Hills",
-                                 coordinate: CLLocationCoordinate2D(latitude: 55.907167, longitude: -3.1915),
-                                 courseInfo: "This is a course in Edinburgh")
-        #else
-        let testMarker = Course(name: "Gleneagles",
+        let testMarker = Course(name: "Gleneagles: King's Course",
                                 coordinate: Coordinates(latitude: 56.2831, longitude: -3.7521),
-                                courseInfo: "This is a golf course near Auchterader")
-        let testMarker2 = Course(name: "Braid Hills", coordinate: Coordinates(latitude: 55.907167, longitude: -3.1915),
-                                 courseInfo: "This is a course in Edinburgh")
-        #endif
+                                courseInfo: "This is a golf course near Auchterader",
+                                holes: 18,
+                                sizeYrds: 6790,
+                                rating: 73.0,
+                                cost: Cost(costSummer: 325,
+                                           costWinter: 95),
+                                type: .heathland)
+        let testMarker2 = Course(name: "Braid Hills",
+                                 coordinate: Coordinates(latitude: 55.9160843, longitude: -3.2045417),
+                                 courseInfo: "This is a course in Edinburgh",
+                                 holes: 18,
+                                 sizeYrds: 5865,
+                                 rating: 67.2,
+                                 cost: Cost(costSummer: 150,
+                                            costWinter: 55),
+                                 type: .heathland)
         
         courses.append(testMarker)
         courses.append(testMarker2)

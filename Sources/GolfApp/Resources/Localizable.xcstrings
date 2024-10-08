@@ -29,6 +29,9 @@
         }
       }
     },
+    "Cost winter: %lf" : {
+
+    },
     "Dark" : {
       "localizations" : {
         "es" : {
@@ -91,6 +94,9 @@
           }
         }
       }
+    },
+    "Holes: %lld" : {
+
     },
     "Home" : {
       "extractionState" : "stale",
@@ -292,6 +298,9 @@
           }
         }
       }
+    },
+    "Size: %lf yards" : {
+
     },
     "System" : {
       "localizations" : {
