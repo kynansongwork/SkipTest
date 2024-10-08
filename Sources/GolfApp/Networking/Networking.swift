@@ -16,7 +16,7 @@ protocol Networking {
     func getData<T: Decodable>(request: URLRequest) async throws -> T?
     #endif
     
-    func getCoursesData(request: URLRequest) async throws -> Course
+    func getCoursesData(request: URLRequest) async throws -> CourseModel
 }
 
 class NetworkingManager: Networking {
@@ -37,9 +37,9 @@ class NetworkingManager: Networking {
     }
     #endif
     
-    func getCoursesData(request: URLRequest) async throws -> Course {
+    func getCoursesData(request: URLRequest) async throws -> CourseModel {
         let (data, _) = try await URLSession.shared.data(for: request)
-        return try JSONDecoder().decode(Course.self, from: data)
+        return try JSONDecoder().decode(CourseModel.self, from: data)
     }
     
 }

@@ -38,7 +38,7 @@ struct Course: Identifiable, Decodable {
     let id = UUID()
     var name: String
     
-    var coordinate: Coordinates
+    var coordinates: Coordinates
     
     var courseInfo: String
     var holes: Int
@@ -46,5 +46,25 @@ struct Course: Identifiable, Decodable {
     var rating: Double?
     var cost: Cost?
     var type: CourseType
+}
+
+struct CourseModel: Identifiable, Decodable {
+    let id = UUID()
+    let course, region: String
+    let postcode: String?
+    let coordinates: Coordinates
+    let type: CourseType
+    let yrds: Int
+    let holes, par: Int?
+    let courseCourseRating: Double?
+    let courseSlopeRating: Int?
+    let golfshakeRating: Double?
+    let coursePrivate: Bool?
+    let courseCourseHC: Double?
+    let courseMyRating, courseOfficialRating, costSummer, costWinter: Int?
+    let courseHC: Double?
+    let myRating, officialRating: Int?
+    let courseRating: Double?
+    let slopeRating: Int?
 }
 

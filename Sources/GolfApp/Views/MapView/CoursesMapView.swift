@@ -23,9 +23,9 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     @State var position: MapCameraPosition = .automatic
     @State var selectedCourse: String?
     
-    private var selectedPlace: Course? {
+    private var selectedPlace: CourseModel? {
         if let selectedCourse {
-            return viewModel.courses.first(where: { $0.name == selectedCourse })
+            return viewModel.courses.first(where: { $0.course == selectedCourse })
         }
         return nil
     }
@@ -36,9 +36,9 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
         Map(position: $position, selection: $selectedCourse) {
             
             ForEach(viewModel.courses) { course in
-                Marker(course.name, coordinate: CLLocationCoordinate2D(latitude: course.coordinate.latitude,
-                                                                       longitude: course.coordinate.longitude))
-                    .tag(course.name)
+                Marker(course.course, coordinate: CLLocationCoordinate2D(latitude: course.coordinates.latitude,
+                                                                       longitude: course.coordinates.longitude))
+                .tag(course.course)
             }
             
         }
@@ -55,13 +55,13 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
         #else
         ComposeView { ctx in
             GoogleMap(cameraPositionState: rememberCameraPositionState {
-                position = CameraPosition.fromLatLngZoom(LatLng(viewModel.courses[0].coordinate.latitude, viewModel.courses[0].coordinate.longitude), Float(8.0))
+                position = CameraPosition.fromLatLngZoom(LatLng(viewModel.courses[0].coordinates.latitude, viewModel.courses[0].coordinates.longitude), Float(8.0))
             }) {
                 for course in viewModel.courses {
                     Marker(
-                        state = MarkerState(position = LatLng(course.coordinate.latitude, course.coordinate.longitude)),
-                        title = course.name,
-                        snippet = course.courseInfo
+                        state = MarkerState(position = LatLng(course.coordinates.latitude, course.coordinates.longitude)),
+                        title = course.course,
+                        snippet = course.region
                     )
                 }
             }

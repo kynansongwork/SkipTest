@@ -18,38 +18,65 @@ enum MapViewState: Equatable {
 
 protocol CoursesMapViewModelling: ObservableObject {
     var state: MapViewState { get }
-    var courses: [Course] { get set }
+    var courses: [CourseModel] { get set }
     
     func fetchCourses()
 }
 
 class CoursesMapViewModel: CoursesMapViewModelling {
     var state: MapViewState = .loading
-    var courses: [Course] = []
+    var courses: [CourseModel] = []
     
     init() {
         self.fetchCourses()
     }
     
     func fetchCourses() {
-        let testMarker = Course(name: "Gleneagles: King's Course",
-                                coordinate: Coordinates(latitude: 56.2831, longitude: -3.7521),
-                                courseInfo: "This is a golf course near Auchterader",
-                                holes: 18,
-                                sizeYrds: 6790,
-                                rating: 73.0,
-                                cost: Cost(costSummer: 325,
-                                           costWinter: 95),
-                                type: .heathland)
-        let testMarker2 = Course(name: "Braid Hills",
-                                 coordinate: Coordinates(latitude: 55.9160843, longitude: -3.2045417),
-                                 courseInfo: "This is a course in Edinburgh",
-                                 holes: 18,
-                                 sizeYrds: 5865,
-                                 rating: 67.2,
-                                 cost: Cost(costSummer: 150,
-                                            costWinter: 55),
-                                 type: .heathland)
+        let testMarker = CourseModel(course: "Gleneagles: King's Course",
+                                        region: "Perthshire",
+                                        postcode: nil,
+                                        coordinates: Coordinates(latitude: 56.2831, longitude: -3.7521),
+                                        type: .heathland,
+                                        yrds: 6790,
+                                        holes: 18,
+                                        par: nil,
+                                        courseCourseRating: 73,
+                                        courseSlopeRating: nil,
+                                        golfshakeRating: nil,
+                                        coursePrivate: nil,
+                                        courseCourseHC: nil,
+                                        courseMyRating: nil,
+                                        courseOfficialRating: nil,
+                                        costSummer: 325,
+                                        costWinter: 95,
+                                        courseHC: nil,
+                                        myRating: nil,
+                                        officialRating: nil,
+                                        courseRating: nil,
+                                        slopeRating: nil)
+        
+        let testMarker2 = CourseModel(course: "Braid Hills",
+                                      region: "Edinburgh",
+                                      postcode: nil,
+                                      coordinates: Coordinates(latitude: 55.9160843, longitude: -3.2045417),
+                                      type: .heathland,
+                                      yrds: 5865,
+                                      holes: 18,
+                                      par: nil,
+                                      courseCourseRating: 67.2,
+                                      courseSlopeRating: nil,
+                                      golfshakeRating: nil,
+                                      coursePrivate: nil,
+                                      courseCourseHC: nil,
+                                      courseMyRating: nil,
+                                      courseOfficialRating: nil,
+                                      costSummer: 150,
+                                      costWinter: 55,
+                                      courseHC: nil,
+                                      myRating: nil,
+                                      officialRating: nil,
+                                      courseRating: nil,
+                                      slopeRating: nil)
         
         courses.append(testMarker)
         courses.append(testMarker2)

@@ -29,7 +29,16 @@
         }
       }
     },
+    "Closed" : {
+
+    },
+    "Cost summer: %lld" : {
+
+    },
     "Cost winter: %lf" : {
+
+    },
+    "Cost winter: %lld" : {
 
     },
     "Dark" : {
@@ -242,6 +251,9 @@
     "Profile" : {
 
     },
+    "Rating: %lf" : {
+
+    },
     "Screen %lld" : {
       "localizations" : {
         "es" : {
@@ -300,6 +312,9 @@
       }
     },
     "Size: %lf yards" : {
+
+    },
+    "Size: %lld yards" : {
 
     },
     "System" : {
