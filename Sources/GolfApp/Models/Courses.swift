@@ -15,9 +15,20 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 #endif
 
-//struct Courses: Identifiable {
-//    let id = UUID()
-//    var name: String
-//    var coordinate: CLLocationCoordinate2D
-//}
+struct Coordinates {
+    var latitude: Double
+    var longitude: Double
+}
+
+struct Course: Identifiable {
+    let id = UUID()
+    var name: String
+    
+    #if !SKIP
+    var coordinate: CLLocationCoordinate2D
+    #else
+    var coordinate: Coordinates
+    #endif
+    
+}
 

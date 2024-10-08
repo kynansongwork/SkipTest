@@ -25,13 +25,27 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     
     var body: some View {
         #if !SKIP
-        Map(position: $position)
-            .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
+        
+        Map(position: $position, content: {
+            
+            ForEach(viewModel.courses) { course in
+                Marker(course.name, coordinate: course.coordinate)
+            }
+            
+        })
+        .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
         #else
         ComposeView { ctx in
             GoogleMap(cameraPositionState: rememberCameraPositionState {
-                position = CameraPosition.fromLatLngZoom(LatLng(3.1950, 55.9230), Float(12.0))
-            })
+                position = CameraPosition.fromLatLngZoom(LatLng(viewModel.courses[0].coordinate.latitude, viewModel.courses[0].coordinate.longitude), Float(8.0))
+            }) {
+                for course in viewModel.courses {
+                    Marker(
+                        state = MarkerState(position = LatLng(course.coordinate.latitude, course.coordinate.longitude)),
+                        title = course.name
+                    )
+                }
+            }
         }
         #endif
     }

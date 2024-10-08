@@ -6,6 +6,9 @@
 //
 
 import Combine
+#if !SKIP
+import CoreLocation
+#endif
 
 enum MapViewState: Equatable {
     case loaded
@@ -15,11 +18,29 @@ enum MapViewState: Equatable {
 
 protocol CoursesMapViewModelling: ObservableObject {
     var state: MapViewState { get }
+    var courses: [Course] { get set }
+    
+    func fetchCourses()
 }
 
 class CoursesMapViewModel: CoursesMapViewModelling {
     var state: MapViewState = .loading
+    var courses: [Course] = []
     
     init() {
+        self.fetchCourses()
+    }
+    
+    func fetchCourses() {
+        #if !SKIP
+        let testMarker = Course(name: "Gleneagles", coordinate: CLLocationCoordinate2D(latitude: 56.2831, longitude: -3.7521))
+        let testMarker2 = Course(name: "Braid Hills", coordinate: CLLocationCoordinate2D(latitude: 55.907167, longitude: -3.1915))
+        #else
+        let testMarker = Course(name: "Gleneagles", coordinate: Coordinates(latitude: 56.2831, longitude: -3.7521))
+        let testMarker2 = Course(name: "Braid Hills", coordinate: Coordinates(latitude: 55.907167, longitude: -3.1915))
+        #endif
+        
+        courses.append(testMarker)
+        courses.append(testMarker2)
     }
 }
