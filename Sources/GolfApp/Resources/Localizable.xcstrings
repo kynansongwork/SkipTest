@@ -32,13 +32,10 @@
     "Closed" : {
 
     },
-    "Cost summer: %lld" : {
+    "Cost summer: £%lld" : {
 
     },
-    "Cost winter: %lf" : {
-
-    },
-    "Cost winter: %lld" : {
+    "Cost winter: £%lld" : {
 
     },
     "Dark" : {

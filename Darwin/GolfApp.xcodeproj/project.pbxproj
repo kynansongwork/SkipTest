@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24819D992CB6ABEE00D21D37 /* ScottishGolfCourses.json in Resources */ = {isa = PBXBuildFile; fileRef = 24819D982CB6ABED00D21D37 /* ScottishGolfCourses.json */; };
 		49231BAC2AC5BCEF00F98ADF /* GolfAppApp in Frameworks */ = {isa = PBXBuildFile; productRef = 49231BAB2AC5BCEF00F98ADF /* GolfAppApp */; };
 		49231BAD2AC5BCEF00F98ADF /* GolfAppApp in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 49231BAB2AC5BCEF00F98ADF /* GolfAppApp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		496BDBEE2B8A7E9C00C09264 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 496BDBED2B8A7E9C00C09264 /* Localizable.xcstrings */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24819D982CB6ABED00D21D37 /* ScottishGolfCourses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ScottishGolfCourses.json; path = ../Sources/GolfApp/Networking/ScottishGolfCourses.json; sourceTree = "<group>"; };
 		4900101C2BACEA710000DE33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		493609562A6B7EAE00C401E2 /* GolfApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GolfApp; path = ..; sourceTree = "<group>"; };
 		496BDBEB2B89A47800C09264 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 		49F90C1F2A52156200F06D93 = {
 			isa = PBXGroup;
 			children = (
+				24819D982CB6ABED00D21D37 /* ScottishGolfCourses.json */,
 				496EB72F2A6AE4DE00C1253C /* README.md */,
 				496EB72F2A6AE4DE00C1253A /* Skip.env */,
 				496EB72F2A6AE4DE00C1253B /* GolfApp.xcconfig */,
@@ -158,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24819D992CB6ABEE00D21D37 /* ScottishGolfCourses.json in Resources */,
 				499CD4402AC5B799001AE8D8 /* Assets.xcassets in Resources */,
 				496BDBEE2B8A7E9C00C09264 /* Localizable.xcstrings in Resources */,
 			);

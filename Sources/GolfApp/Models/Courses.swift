@@ -18,6 +18,11 @@ import com.google.android.gms.maps.model.LatLng
 struct Coordinates: Decodable {
     var latitude: Double
     var longitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case latitude = "lat"
+        case longitude = "long"
+    }
 }
 
 enum CourseType: String, Decodable {
@@ -28,29 +33,10 @@ enum CourseType: String, Decodable {
     case mixed = "Mixed"
 }
 
-struct Cost: Decodable {
-    var costSummer: Double
-    var costWinter: Double?
-    var residentRate: Double?
-}
-
-struct Course: Identifiable, Decodable {
-    let id = UUID()
-    var name: String
-    
-    var coordinates: Coordinates
-    
-    var courseInfo: String
-    var holes: Int
-    var sizeYrds: Double
-    var rating: Double?
-    var cost: Cost?
-    var type: CourseType
-}
-
 struct CourseModel: Identifiable, Decodable {
-    let id = UUID()
-    let course, region: String
+    var id = UUID()
+    let course: String
+    let region: String
     let postcode: String?
     let coordinates: Coordinates
     let type: CourseType
@@ -66,5 +52,30 @@ struct CourseModel: Identifiable, Decodable {
     let myRating, officialRating: Int?
     let courseRating: Double?
     let slopeRating: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case course = "COURSE"
+        case region = "REGION"
+        case postcode = "POSTCODE"
+        case coordinates = "Coordinates"
+        case type = "TYPE"
+        case yrds = "YRDS"
+        case holes = "HOLES"
+        case par = "PAR"
+        case courseCourseRating = "courseRating"
+        case courseSlopeRating = "slopeRating"
+        case golfshakeRating
+        case coursePrivate = "Private"
+        case courseCourseHC = "courseHC"
+        case courseMyRating = "myRating"
+        case courseOfficialRating = "OfficialRating"
+        case costSummer
+        case costWinter = "CostWinter"
+        case courseHC = "Course HC"
+        case myRating = "My Rating"
+        case officialRating = "Official Rating"
+        case courseRating = "Course Rating"
+        case slopeRating = "Slope Rating"
+    }
 }
 
