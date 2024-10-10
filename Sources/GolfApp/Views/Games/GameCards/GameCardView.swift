@@ -28,7 +28,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                             HStack(spacing: 20) {
 
                                 NavigationLink("Select a course", destination: {
-                                    Text("Course list")
+                                    CoursesList(courses: viewModel.courses)
                                 })
                                 
                                 DatePicker("Date", selection: $gameDate)
