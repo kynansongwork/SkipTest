@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
     "Appearance" : {
       "localizations" : {
         "es" : {
@@ -38,6 +41,9 @@
     "Cost winter: £%lld" : {
 
     },
+    "Course name" : {
+
+    },
     "Dark" : {
       "localizations" : {
         "es" : {
@@ -65,6 +71,9 @@
           }
         }
       }
+    },
+    "Date" : {
+
     },
     "Find Courses" : {
 
@@ -217,6 +226,9 @@
         }
       }
     },
+    "Par" : {
+
+    },
     "Powered by %@" : {
       "localizations" : {
         "es" : {
@@ -251,7 +263,11 @@
     "Rating: %lf" : {
 
     },
+    "Score" : {
+
+    },
     "Screen %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {

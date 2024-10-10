@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  CourseInfoView.swift
 //  golf-app
 //
 //  Created by Kynan Song on 08/10/2024.

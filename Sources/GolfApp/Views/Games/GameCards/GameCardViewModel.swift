@@ -1,33 +1,23 @@
 //
-//  CoursesMapViewModel.swift
+//  GameCardViewModel.swift
 //  golf-app
 //
-//  Created by Kynan Song on 03/10/2024.
+//  Created by Kynan Song on 10/10/2024.
 //
 
 import Combine
-#if !SKIP
-import CoreLocation
-#endif
 
-enum MapViewState: Equatable {
-    case loaded
-    case loading
-    case error
-}
-
-protocol CoursesMapViewModelling: ObservableObject {
-    var state: MapViewState { get }
+protocol GameCardViewModelling: ObservableObject {
     var courses: [CourseModel] { get set }
     
     func fetchCourses()
 }
 
-class CoursesMapViewModel: CoursesMapViewModelling {
+class GameCardViewModel: GameCardViewModelling {
     
     @Published var courses: [CourseModel] = []
-    
-    var state: MapViewState = .loading
+    @Published var selectedCourse: CourseModel?
+
     var networking: Networking
     
     init() {

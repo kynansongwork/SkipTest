@@ -18,19 +18,7 @@ public struct ContentView: View {
                     .tag(Tab.courses)
             }
             
-            NavigationStack {
-                List {
-                    ForEach(1..<1_000) { i in
-                        NavigationLink("Item \(i)", value: i)
-                    }
-                }
-                .navigationTitle("Game Tracker")
-                .navigationDestination(for: Int.self) { i in
-                    Text("Item \(i)")
-                        .font(.title)
-                        .navigationTitle("Screen \(i)")
-                }
-            }
+            GamesView()
             .tabItem {
                 Label("Game Tracker", systemImage: "table")
             }

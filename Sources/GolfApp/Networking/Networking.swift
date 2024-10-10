@@ -26,6 +26,8 @@ protocol Networking {
 
 class NetworkingManager: Networking {
     
+    //TODO: Make this a singleton?
+    
     var apiURL: URL?
     
     init(url: URL?) {
