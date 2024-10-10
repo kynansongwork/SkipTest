@@ -4,6 +4,12 @@
     "%lld" : {
 
     },
+    "0" : {
+
+    },
+    "Add game" : {
+
+    },
     "Appearance" : {
       "localizations" : {
         "es" : {
@@ -41,7 +47,7 @@
     "Cost winter: £%lld" : {
 
     },
-    "Course name" : {
+    "Course list" : {
 
     },
     "Dark" : {
@@ -73,6 +79,9 @@
       }
     },
     "Date" : {
+
+    },
+    "Date: %@" : {
 
     },
     "Find Courses" : {
@@ -110,6 +119,9 @@
         }
       }
     },
+    "Hole" : {
+
+    },
     "Holes: %lld" : {
 
     },
@@ -143,6 +155,7 @@
       }
     },
     "Item %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -263,6 +276,9 @@
     "Rating: %lf" : {
 
     },
+    "Save Game" : {
+
+    },
     "Score" : {
 
     },
@@ -294,6 +310,9 @@
           }
         }
       }
+    },
+    "Select a course" : {
+
     },
     "Settings" : {
       "extractionState" : "stale",

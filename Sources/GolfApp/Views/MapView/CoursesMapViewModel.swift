@@ -43,4 +43,6 @@ class CoursesMapViewModel: CoursesMapViewModelling {
             courses.append(contentsOf: data)
         }
     }
+    
+    func filterCourses() {}
 }

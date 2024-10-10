@@ -18,7 +18,11 @@ public struct ContentView: View {
                     .tag(Tab.courses)
             }
             
-            GamesView()
+            NavigationStack {
+                GamesView()
+                    .background(Color.white)
+            }
+            .padding(.bottom, 1)
             .tabItem {
                 Label("Game Tracker", systemImage: "table")
             }
@@ -46,6 +50,7 @@ public struct ContentView: View {
                 }
                 .navigationTitle("Profile")
             }
+            .padding(.bottom, 1)
             .tabItem {
                 Label("Profile", systemImage: "person")
             }

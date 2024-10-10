@@ -1,5 +1,5 @@
 //
-//  Courses.swift
+//  Course.swift
 //  golf-app
 //
 //  Created by Kynan Song on 04/10/2024.
